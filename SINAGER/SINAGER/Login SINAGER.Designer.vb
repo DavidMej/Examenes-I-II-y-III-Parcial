@@ -125,7 +125,7 @@ Partial Class Login_SINAGER
         '
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.PictureBox1.Image = Global.SINAGER.My.Resources.Resources.login
-        Me.PictureBox1.Location = New System.Drawing.Point(20, 25)
+        Me.PictureBox1.Location = New System.Drawing.Point(21, 25)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(168, 101)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
