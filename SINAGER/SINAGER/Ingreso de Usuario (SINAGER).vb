@@ -22,6 +22,7 @@ Public Class Ingreso_de_Usuario__SINAGER_
 
             If chkActivo.Checked = True Then
                 totalActivos += 1
+                totalPositivos += 1
                 estadoPaciente = "Activo"
             ElseIf chkMuerto.Checked = True Then
                 totalMuertos += 1
@@ -30,6 +31,7 @@ Public Class Ingreso_de_Usuario__SINAGER_
         End If
         If chkNegativo.Checked = True And chkRecuperado.Checked = True Then
             totalRecuperados += 1
+            totalNegativos += 1
             estadoPaciente = "Recuperado"
         ElseIf chkNegativo.Checked = True Then
             totalNegativos += 1
@@ -65,137 +67,145 @@ Public Class Ingreso_de_Usuario__SINAGER_
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
+                d1 += 1
                 No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Atlantida"
                 lsbCasosxDepto.Items.Add(No_Deptos(1, d1))
+            Case 1
+                nombre = txtNombre.Text
+                muni = txtMunicipios.Text
+                edad = txtEdad.Text
+                Pacient()
+                d2 += 1
+                No_Deptos(2, d2) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Choluteca"
+                lsbCasosxDepto.Items.Add(No_Deptos(2, d2))
             Case 2
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Choluteca"
-                lsbCasosxDepto.Items.Add(No_Deptos(2, d2))
+                d3 += 1
+                No_Deptos(3, d3) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Colon"
+                lsbCasosxDepto.Items.Add(No_Deptos(3, d3))
             Case 3
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Colon"
-                lsbCasosxDepto.Items.Add(No_Deptos(3, d3))
+                d4 += 1
+                No_Deptos(4, d4) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Comayagua"
+                lsbCasosxDepto.Items.Add(No_Deptos(4, d4))
             Case 4
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Comayagua"
-                lsbCasosxDepto.Items.Add(No_Deptos(4, d4))
+                d5 += 1
+                No_Deptos(5, d5) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Copan"
+                lsbCasosxDepto.Items.Add(No_Deptos(5, d5))
             Case 5
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Copan"
-                lsbCasosxDepto.Items.Add(No_Deptos(5, d5))
+                d6 += 1
+                No_Deptos(6, d6) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Cortes"
+                lsbCasosxDepto.Items.Add(No_Deptos(6, d6))
             Case 6
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Cortes"
-                lsbCasosxDepto.Items.Add(No_Deptos(6, d6))
+                d7 += 1
+                No_Deptos(7, d7) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: El Paraiso"
+                lsbCasosxDepto.Items.Add(No_Deptos(7, d7))
             Case 7
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: El Paraiso"
-                lsbCasosxDepto.Items.Add(No_Deptos(7, d7))
+                d8 += 1
+                No_Deptos(8, d8) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Francisco Morazan"
+                lsbCasosxDepto.Items.Add(No_Deptos(8, d8))
             Case 8
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Francisco Morazan"
-                lsbCasosxDepto.Items.Add(No_Deptos(8, d8))
+                d9 += 1
+                No_Deptos(9, d9) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Gracias a Dios"
+                lsbCasosxDepto.Items.Add(No_Deptos(9, d9))
             Case 9
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Gracias a Dios"
-                lsbCasosxDepto.Items.Add(No_Deptos(9, d9))
+                d10 += 1
+                No_Deptos(10, d10) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Intibuca"
+                lsbCasosxDepto.Items.Add(No_Deptos(10, d10))
             Case 10
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Intibuca"
-                lsbCasosxDepto.Items.Add(No_Deptos(10, d10))
+                d11 += 1
+                No_Deptos(11, d11) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: La Paz"
+                lsbCasosxDepto.Items.Add(No_Deptos(11, d11))
             Case 11
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: La Paz"
-                lsbCasosxDepto.Items.Add(No_Deptos(11, d11))
+                d12 = d12 + 1
+                No_Deptos(12, d12) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Lempira"
+                lsbCasosxDepto.Items.Add(No_Deptos(12, d12))
             Case 12
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Lempira"
-                lsbCasosxDepto.Items.Add(No_Deptos(12, d12))
+                d13 += 1
+                No_Deptos(13, d13) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Ocotepque"
+                lsbCasosxDepto.Items.Add(No_Deptos(13, d13))
             Case 13
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Ocotepque"
-                lsbCasosxDepto.Items.Add(No_Deptos(13, d13))
+                d14 += 1
+                No_Deptos(14, d14) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Olancho"
+                lsbCasosxDepto.Items.Add(No_Deptos(14, d14))
             Case 14
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Olancho"
-                lsbCasosxDepto.Items.Add(No_Deptos(14, d14))
+                d15 += 1
+                No_Deptos(15, d15) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Santa Barbara"
+                lsbCasosxDepto.Items.Add(No_Deptos(15, d15))
             Case 15
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Santa Barbara"
-                lsbCasosxDepto.Items.Add(No_Deptos(15, d15))
+                d16 += 1
+                No_Deptos(16, d16) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Yoro"
+                lsbCasosxDepto.Items.Add(No_Deptos(16, d16))
             Case 16
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Yoro"
-                lsbCasosxDepto.Items.Add(No_Deptos(16, d16))
+                d17 += 1
+                No_Deptos(17, d17) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Yoro"
+                lsbCasosxDepto.Items.Add(No_Deptos(17, d17))
             Case 17
                 nombre = txtNombre.Text
                 muni = txtMunicipios.Text
                 edad = txtEdad.Text
                 Pacient()
-                d1 = d1 + 1
-                No_Deptos(1, d1) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Islas de la Bahia"
-                lsbCasosxDepto.Items.Add(No_Deptos(17, d17))
+                d18 += 1
+                No_Deptos(18, d18) = nombre & "," & edad & "años, " & "Estado: " & estadoPaciente & "Depto: Islas de la Bahia"
+                lsbCasosxDepto.Items.Add(No_Deptos(18, d18))
 
         End Select
 
