@@ -1,0 +1,236 @@
+﻿--drop database TiendaCule
+--go
+
+create database TiendaCule
+go
+
+use TiendaCule
+go
+
+create schema factura
+go
+
+create table factura.cliente (
+	idC int primary key not null,
+	nombre varchar(25),
+	apellido varchar(25),
+	direccion varchar(50),
+)
+
+
+create table factura.producto(
+	idP int primary key not null,
+	nombreProducto varchar(40),
+	descripcion varchar(50)
+)
+
+create table factura.Venta(
+	idVenta int primary key not null,
+	fechaVenta date,
+	precio int,
+	cantidad int,
+	idClient int foreign key references factura.cliente(idC),
+	idProduct int foreign key references factura.producto(idP)
+)
+
+Create procedure ingresoCliente(
+@idCliente int,
+@nombre varchar(25),
+@apellido varchar(25),
+@direccion varchar(50)
+
+)
+
+As 
+Begin
+Insert into factura.cliente(idC, nombre, apellido, direccion)
+Values(@idCliente, @nombre, @apellido, @direccion)
+End 
+
+exec ingresoCliente 1, 'David', 'Mejia', 'Santa Barbara'
+exec ingresoCliente 3, 'Samuel', 'Oviedo', 'Siguatepeque'
+
+Select * from factura.cliente 
+
+--Procediiento para buscar Cliente 
+
+Create procedure buscarCliente(@idCliente int)
+As 
+Begin
+Select idC as 'IdCliente:', nombre as 'Nombre:', apellido as 'Apellido:', direccion as 'Direccion:' from factura.cliente 
+where idC = @idCliente
+End 
+
+exec buscarCliente 1
+--Select * from factura.cliente
+
+-- Procedimiento para Ingresar un Producto 
+
+Create procedure ingresoProducto(
+@idProducto int,
+@nombreProducto varchar(40),
+@descripcion varchar(50)
+)
+
+As 
+Begin
+Insert Into factura.producto(idP, nombreProducto, descripcion)
+Values(@idProducto, @nombreProducto, @descripcion)
+End 
+
+exec ingresoProducto 1, 'Pepsi', 'Se vendio'
+exec ingresoProducto 2, 'Coca-Cola', 'En lata'
+
+Select * from factura.producto 
+
+
+--Procedimiento para buscar Producto
+
+Create procedure buscarProducto(@idProducto int)
+As 
+Begin
+Select idP as 'IdProducto:', nombreProducto as 'Nombre:', descripcion as 'Descripcion:' from factura.producto 
+where idP = @idProducto
+End 
+
+exec buscarProducto 1
+
+
+Create procedure Venta(
+@idVenta int, 
+@fechaVenta date,
+@precio int, 
+@cantidad int, 
+@idCliente int, 
+@idProducto int
+)
+
+As 
+Begin 
+Insert into factura.Venta(idVenta, fechaVenta, precio, cantidad, idClient, idProduct)
+Values(@idVenta, @fechaventa, @precio, @cantidad, @idCliente, @idProducto)
+End 
+
+exec Venta 1, '2020/07/07', 20, 2, 1, 1
+exec Venta 2, '2020/07/08', 30, 1, 3, 2
+
+Select * from factura.Venta 
+
+--Procedimiento para buscar Ventas
+
+create procedure buscarVentas(@idCliente int)
+As 
+Begin
+Select idVenta as 'IdVenta:', fechaVenta as 'Fecha:', precio as 'Precio:', cantidad as 'Cantidad:', Concat(c.nombre, ' ', c.apellido) as 'Nombre Completo:', idC as 'IdCliente:', p.nombreProducto as 'Nombre Producto:', idP as 'IdProducto' from factura.Venta 
+inner join factura.cliente c
+on idClient = c.idC 
+inner join factura.producto p
+on idProduct = p.idP  
+where idC = @idCliente
+End 
+
+exec buscarVentas 1
+
+Select * from factura.Venta
+
+
+--Procedimiento para Actualizar Cliente
+
+Create procedure actualizarCliente(
+@idCliente int,
+@nombre varchar(25),
+@apellido varchar(25),
+@direccion varchar(50)
+
+)
+
+As 
+Begin
+Update factura.cliente
+Set  idC = @idCliente, nombre = @nombre, apellido = @apellido, direccion = @direccion 
+where idC = @idCliente
+End
+
+exec actualizarCliente 1, 'David', 'Urbina', 'Zacapa'
+--Select * from factura.cliente 
+
+
+--Procedimieto Para Eliminar un Cliente 
+
+Create procedure eliminarCliente(@idCliente int)
+As 
+Begin
+Delete from factura.Venta  where idClient = @idCliente
+Delete from factura.cliente where idC = @idCliente
+End 
+
+exec eliminarCliente 1
+
+--Select * from factura.cliente 
+--Select * from factura.Venta
+
+
+--Procedmiento para Acualizar una Venta 
+
+Create procedure actualizarVenta(
+@idVenta int, 
+@fechaVenta date,
+@precio int, 
+@cantidad int, 
+@idCliente int, 
+@idProducto int
+
+)
+ 
+As 
+Begin
+Update factura.Venta 
+Set idVenta = @idVenta, fechaVenta = @fechaVenta, precio = @precio, cantidad = @cantidad, idClient = @idCliente, idProduct = @idProducto
+where idClient = @idCliente
+End 
+
+exec actualizarVenta 2, '2020/07/08', 22, 2, 3, 2
+
+
+
+--Procedimiento para Eliminar una Venta 
+
+Create procedure elminarVenta(@idVenta int)
+As 
+Begin
+Delete from factura.Venta where idVenta = @idVenta
+End 
+
+exec eliminarVenta 1
+
+
+--Procedimiento para Actualizar un Producto
+
+Create procedure actualizarProducto(
+@idProducto int, 
+@nombreProducto varchar(40),
+@decripcion varchar(50)
+)
+
+As 
+Begin
+Update factura.producto 
+Set idP = @idProducto, nombreProducto = @nombreProducto, descripcion = @decripcion
+where idP = @idProducto
+End 
+
+exec actualizarProducto 2, 'Coca-Cola Cero', 'Mas fria que tu ex'
+
+
+--Procedimiento para Eliminar un Producto 
+
+Create procedure eliminarProducto(@idProducto int)
+As
+Begin
+Delete from factura.Venta where idClient = @idProducto
+Delete from factura.producto where idP = @idProducto
+End 
+
+exec eliminarProducto 1
+
+--select * from factura.producto 

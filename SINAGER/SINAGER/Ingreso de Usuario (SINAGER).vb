@@ -254,7 +254,6 @@ Public Class Ingreso_de_Usuario__SINAGER_
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         txtNombre.Clear()
         txtEdad.Clear()
-        cmbDepartamentos.Items.Clear()
         chkPositivo.Checked = False
         chkNegativo.Checked = False
         chkActivo.Checked = False
