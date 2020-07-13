@@ -164,19 +164,19 @@ Partial Class Clientes
         '
         Me.SalirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasToolStripMenuItem, Me.ProductosToolStripMenuItem})
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(106, 28)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(106, 26)
         Me.SalirToolStripMenuItem.Text = "Regresar"
         '
         'VentasToolStripMenuItem
         '
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(197, 34)
         Me.VentasToolStripMenuItem.Text = "Ventas "
         '
         'ProductosToolStripMenuItem
         '
         Me.ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
-        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
+        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(197, 34)
         Me.ProductosToolStripMenuItem.Text = "Productos"
         '
         'Clientes
